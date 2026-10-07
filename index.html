@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RM Puzzle Games</title>
+  <meta name="description" content="RM Puzzle Games makes colourful, relaxing puzzle games for Android, including Color Transit.">
+  <link rel="icon" href="assets/color-transit-icon.png">
+  <style>
+    :root {
+      --bg: #fff9ec;
+      --card: #ffffff;
+      --ink: #1f2a44;
+      --muted: #5b6478;
+      --accent: #39c46e;
+      --accent-ink: #ffffff;
+      --line: #efe4cc;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141a2b;
+        --card: #1f2740;
+        --ink: #f3f5fb;
+        --muted: #aab3c8;
+        --accent: #39c46e;
+        --accent-ink: #0d1a12;
+        --line: #2c3654;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 880px; margin: 0 auto; padding: 32px 16px 48px; }
+    header { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+    header .logo {
+      width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+      background: var(--ink); color: var(--bg); font-weight: 800; letter-spacing: .5px;
+    }
+    header h1 { font-size: 22px; margin: 0; }
+    .game {
+      display: grid; grid-template-columns: 1fr 240px; gap: 28px; align-items: center;
+      background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 28px;
+    }
+    .game .title { display: flex; align-items: center; gap: 16px; }
+    .game .title img { width: 84px; height: 84px; border-radius: 20px; }
+    .game h2 { font-size: 30px; margin: 0; }
+    .game .tag { color: var(--muted); margin: 2px 0 0; }
+    .game p { margin: 18px 0; }
+    .game ul { margin: 0 0 22px; padding-left: 20px; color: var(--muted); }
+    .play {
+      display: inline-block; background: var(--accent); color: var(--accent-ink); text-decoration: none;
+      font-weight: 700; padding: 13px 22px; border-radius: 14px;
+    }
+    .shot { width: 100%; border-radius: 22px; border: 1px solid var(--line); display: block; }
+    footer { margin-top: 36px; color: var(--muted); font-size: 15px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+    footer a { color: inherit; }
+    @media (max-width: 680px) {
+      .game { grid-template-columns: 1fr; padding: 20px; }
+      .shot { max-width: 260px; margin: 0 auto; }
+      .game h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="logo">RM</div>
+      <h1>RM Puzzle Games</h1>
+    </header>
+
+    <section class="game">
+      <div>
+        <div class="title">
+          <img src="assets/color-transit-icon.png" alt="Color Transit icon">
+          <div>
+            <h2>Color Transit</h2>
+            <p class="tag">Bus jam colour puzzle</p>
+          </div>
+        </div>
+        <p>Match riders to their bus and clear the traffic jam in 1000 colour puzzles! Tap a bus to send it to a
+          loading bay, let every rider of its colour hop aboard, and plan ahead before the bays fill up.</p>
+        <ul>
+          <li>1000 levels that get trickier as you go</li>
+          <li>New twists every few stops: locked buses, mystery buses, small bays and more</li>
+          <li>Garage full of buses, cars, trucks and autos to unlock</li>
+        </ul>
+        <a class="play" href="https://play.google.com/store/apps/details?id=com.colortransit.game">Get it on Google Play</a>
+      </div>
+      <img class="shot" src="assets/color-transit-screen.jpg" alt="Color Transit gameplay screenshot">
+    </section>
+
+    <footer>
+      <span>© 2026 RM Puzzle Games</span>
+      <a href="https://sites.google.com/view/rmpuzzlegames/home">Privacy Policy</a>
+      <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a>
+    </footer>
+  </main>
+</body>
+</html>

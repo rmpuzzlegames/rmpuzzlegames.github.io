@@ -1,0 +1,4 @@
+# app-ads.txt for RM Puzzle Games (Color Transit, com.colortransit.game)
+# Google AdMob
+google.com, pub-9419529406465609, DIRECT, f08c47fec0942fa0
+# Unity LevelPlay mediation: paste the lines from the LevelPlay dashboard (app-ads.txt page) below.
