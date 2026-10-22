@@ -167,7 +167,8 @@ conversantmedia.com, 41024, RESELLER, 03113cd04947736d
 insticator.com, cadff748-965f-4393-a76e-a8f902512bad, RESELLER, b3511ffcafb23a32
 playwire.com, 1018531, RESELLER
 
-# ironSource Ads (Unity LevelPlay): authorized resellers from Unity docs
+# ironSource Ads (Unity LevelPlay): direct line (publisher id) and authorized resellers from Unity docs
+ironsrc.com, 686695, DIRECT
 media.net, 8CUH2L333, RESELLER
 sharethrough.com, 3817, RESELLER, d53b998a7bd4ecd2
 playdigo.com, 1956, RESELLER
