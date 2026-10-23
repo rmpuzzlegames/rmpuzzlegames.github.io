@@ -151,3 +151,15 @@ html[lang="hi"] h1, html[lang="hi"] h2, html[lang="hi"] h3, html[lang="hi"] .btn
 html[lang="hi"] body { font-family: "Mukta", system-ui, sans-serif; font-size: 18px; }
 html[lang="hi"] .hero h1 .c { letter-spacing: .12em; }
 @media (max-width: 400px) { .brand .bt { display: none; } }
+
+/* official Google Play badge */
+.cta { align-items: center; }
+.badge { display: inline-block; line-height: 0; border-radius: 12px; transition: transform .15s; }
+.badge:hover { transform: translateY(-2px); }
+.badge img { height: 84px; width: auto; margin: -13px -16px; }
+.badge.b-hi img { height: 68px; margin: -5px -7px; }
+footer .tm { flex-basis: 100%; font-size: 13px; opacity: .8; }
+@media (max-width: 760px) {
+  .cta .badge { margin: 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) { .badge { transition: none; } }
