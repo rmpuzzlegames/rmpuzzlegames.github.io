@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="description" content="Play a level of Color Transit, then get the full game free on Google Play.">
+<meta property="og:title" content="Color Transit - play a level now">
+<meta property="og:description" content="Match riders to their bus and clear the traffic jam. Free on Google Play.">
+<meta property="og:image" content="https://rmpuzzlegames.github.io/assets/color-transit-share.jpg">
+<meta property="og:url" content="https://rmpuzzlegames.github.io/play/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/color-transit-icon.png">
+<title>Color Transit</title>
+<style>html,body{margin:0;height:100%;background:#1d2944;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}canvas{display:block}</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>window.CT_ICON = "data:image/png;base64,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";</script>
+<script>
+// Color Transit playable ad: one small parking-lot level drawn on a canvas.
+// Tap a bus with a clear road ahead to send it to a free bay; riders at the front of the
+// queue board the bus of their colour; full buses drive away. Clear the lot to win.
+// build.py wraps this file into the Google (ExitApi), Meta (FbPlayableAd) and web builds
+// and replaces the CTA placeholder below.
+(function () {
+  'use strict';
+
+  function cta() { window.open('https://play.google.com/store/apps/details?id=com.colortransit.game&referrer=utm_source%3Dweb_playable', '_blank'); }
+
+  var W = 360, H = 640;
+  var COLORS = { red: '#ef4b4b', yellow: '#f6c12c', green: '#38c05a', blue: '#3b86f0', purple: '#9a5bef', pink: '#ef58b2' };
+  var COLS = 5, ROWS = 6, C = 46;
+  var GX = (W - COLS * C) / 2, GY = 338;
+  var BAY_W = 64, BAY_TOP = 154, BAY_H = 150;
+  var BAY_X = [W / 2 - 90, W / 2, W / 2 + 90];
+  var Q_X = 36, Q_Y = 108, Q_SP = 26, Q_SHOW = 11;
+  var BUS_W = C - 10;
+  var DV = { L: [-1, 0], R: [1, 0], U: [0, -1], D: [0, 1] };
+  var ANG = { R: 0, D: Math.PI / 2, L: Math.PI, U: -Math.PI / 2 };
+
+  // Level: every short bus seats 3, every long bus 5. Order of the queue follows the order
+  // the lot can be cleared in, so thinking ahead wins and random tapping can fill the bays.
+  var LEVEL = [
+    { c: 'blue', col: 0, row: 0, len: 2, h: true, dir: 'L' },
+    { c: 'red', col: 2, row: 0, len: 3, h: false, dir: 'U' },
+    { c: 'purple', col: 4, row: 0, len: 2, h: false, dir: 'U' },
+    { c: 'purple', col: 3, row: 0, len: 2, h: false, dir: 'D' },
+    { c: 'yellow', col: 0, row: 2, len: 2, h: true, dir: 'R' },
+    { c: 'green', col: 0, row: 3, len: 3, h: true, dir: 'R' },
+    { c: 'yellow', col: 3, row: 3, len: 2, h: false, dir: 'D' },
+    { c: 'green', col: 4, row: 3, len: 2, h: false, dir: 'U' },
+    { c: 'blue', col: 0, row: 4, len: 2, h: false, dir: 'D' },
+    { c: 'pink', col: 2, row: 5, len: 2, h: true, dir: 'L' }
+  ];
+  var QUEUE = [['blue', 3], ['red', 5], ['purple', 3], ['blue', 3], ['yellow', 3], ['green', 3],
+    ['pink', 3], ['yellow', 3], ['purple', 3], ['green', 5]];
+
+  var cv = document.getElementById('c'), ctx = cv.getContext('2d');
+  var dpr = 1, sc = 1, ox = 0, oy = 0, cw = 0, ch = 0;
+  var icon = new Image();
+  if (window.CT_ICON) icon.src = window.CT_ICON;
+
+  var buses, bays, queue, riders, parts, state, endKind, endT, idle, played, toastText, toastT,
+    qOff, boardCD, stuckT, playT, tapped, shakeT;
+
+  function reset() {
+    buses = LEVEL.map(function (d, i) {
+      var b = { id: i, color: d.c, col: d.col, row: d.row, len: d.len, h: d.h, dir: d.dir, state: 'grid',
+        cap: d.len === 3 ? 5 : 3, load: 0, enroute: 0, bay: -1, bump: 0, bumpAmt: 0, v: 0, t: 0, leaveIn: -1 };
+      var p = gridCenter(b);
+      b.x = p[0]; b.y = p[1]; b.a = ANG[b.dir];
+      return b;
+    });
+    bays = [null, null, null];
+    queue = [];
+    QUEUE.forEach(function (q) { for (var i = 0; i < q[1]; i++) queue.push(q[0]); });
+    riders = []; parts = [];
+    state = 'play'; endKind = ''; endT = 0; idle = 0; playT = 0; tapped = false;
+    toastText = ''; toastT = 0; qOff = 0; boardCD = 0; stuckT = 0; shakeT = 0;
+  }
+
+  // ---------- grid helpers ----------
+  function busLen(b) { return b.len * C - 6; }
+  function gridCenter(b) {
+    return [GX + (b.col + (b.h ? b.len / 2 : 0.5)) * C, GY + (b.row + (b.h ? 0.5 : b.len / 2)) * C];
+  }
+  function cellsOf(b) {
+    var r = [];
+    for (var i = 0; i < b.len; i++) r.push(b.h ? [b.col + i, b.row] : [b.col, b.row + i]);
+    return r;
+  }
+  function occupant(col, row, except) {
+    for (var i = 0; i < buses.length; i++) {
+      var b = buses[i];
+      if (b === except || b.state !== 'grid') continue;
+      var cs = cellsOf(b);
+      for (var j = 0; j < cs.length; j++) if (cs[j][0] === col && cs[j][1] === row) return b;
+    }
+    return null;
+  }
+  function frontCell(b) {
+    var cs = cellsOf(b);
+    return (b.dir === 'L' || b.dir === 'U') ? cs[0] : cs[cs.length - 1];
+  }
+  function blocker(b) {
+    var f = frontCell(b), d = DV[b.dir], c = f[0] + d[0], r = f[1] + d[1], gap = 0;
+    while (c >= 0 && c < COLS && r >= 0 && r < ROWS) {
+      if (occupant(c, r, b)) return { gap: gap };
+      gap++; c += d[0]; r += d[1];
+    }
+    return null;
+  }
+  function freeBay() { for (var i = 0; i < 3; i++) if (!bays[i]) return i; return -1; }
+  function bayTarget(b) { return [BAY_X[b.bay], BAY_TOP + 8 + busLen(b) / 2]; }
+  function exitDistance(b) {
+    var half = busLen(b) / 2 + 26;
+    if (b.dir === 'R') return GX + COLS * C - b.x + half;
+    if (b.dir === 'L') return b.x - GX + half;
+    if (b.dir === 'D') return GY + ROWS * C - b.y + half;
+    return b.y - GY + half;
+  }
+
+  // ---------- sound (starts only after the first tap) ----------
+  var ac = null;
+  function unlockAudio() {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    try { ac = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { ac = null; }
+  }
+  function tone(f, d, type, vol, slide, delay) {
+    if (!ac) return;
+    try {
+      var t = ac.currentTime + (delay || 0), o = ac.createOscillator(), g = ac.createGain();
+      o.type = type || 'sine';
+      o.frequency.setValueAtTime(f, t);
+      if (slide) o.frequency.exponentialRampToValueAtTime(slide, t + d);
+      g.gain.setValueAtTime(vol || 0.12, t);
+      g.gain.exponentialRampToValueAtTime(0.001, t + d);
+      o.connect(g); g.connect(ac.destination);
+      o.start(t); o.stop(t + d + 0.03);
+    } catch (e) { }
+  }
+  var sfx = {
+    tap: function () { tone(660, 0.08, 'triangle', 0.12); },
+    go: function () { tone(220, 0.25, 'sawtooth', 0.05, 440); },
+    bump: function () { tone(140, 0.18, 'square', 0.08, 90); },
+    park: function () { tone(520, 0.07, 'triangle', 0.1); tone(780, 0.09, 'triangle', 0.1, 0, 0.07); },
+    board: function () { tone(900 + Math.random() * 200, 0.05, 'sine', 0.07); },
+    leave: function () { tone(330, 0.35, 'sawtooth', 0.05, 660); },
+    win: function () { [523, 659, 784, 1047].forEach(function (f, i) { tone(f, 0.22, 'triangle', 0.12, 0, i * 0.11); }); },
+    fail: function () { tone(392, 0.25, 'triangle', 0.1, 0, 0); tone(311, 0.35, 'triangle', 0.1, 0, 0.18); }
+  };
+
+  // ---------- input ----------
+  function toLogical(e) {
+    var p = e.touches && e.touches[0] ? e.touches[0] : e;
+    return [(p.clientX - ox) / sc, (p.clientY - oy) / sc];
+  }
+  function inRect(p, x, y, w, h) { return p[0] >= x && p[0] <= x + w && p[1] >= y && p[1] <= y + h; }
+
+  function onDown(e) {
+    e.preventDefault();
+    unlockAudio();
+    var p = toLogical(e);
+    idle = 0;
+    if (inRect(p, W - 104, 10, 94, 30)) { cta(); return; }
+    if (state === 'end') {
+      if (endT < 0.4) return;
+      if (inRect(p, W / 2 - 60, 520, 120, 34)) { reset(); return; }
+      cta();
+      return;
+    }
+    for (var i = 0; i < buses.length; i++) {
+      var b = buses[i];
+      if (b.state !== 'grid') continue;
+      var cs = cellsOf(b), x0 = GX + cs[0][0] * C, y0 = GY + cs[0][1] * C;
+      var w = b.h ? b.len * C : C, h = b.h ? C : b.len * C;
+      if (inRect(p, x0, y0, w, h)) { tapBus(b); return; }
+    }
+  }
+
+  function tapBus(b) {
+    tapped = true;
+    if (b.bump > 0) return;
+    var blk = blocker(b);
+    if (blk) {
+      b.bump = 0.001; b.bumpAmt = blk.gap * C + 6;
+      sfx.bump();
+      toast('BLOCKED! CLEAR THE WAY FIRST');
+      return;
+    }
+    var bay = freeBay();
+    if (bay < 0) { sfx.bump(); shakeT = 0.4; toast('NO FREE BAY!'); return; }
+    sfx.tap(); sfx.go();
+    bays[bay] = b; b.bay = bay;
+    b.state = 'exit'; b.dist = exitDistance(b); b.moved = 0;
+  }
+
+  function toast(t) { toastText = t; toastT = 1.6; }
+
+  // ---------- game flow ----------
+  function bayBusFor(color) {
+    for (var i = 0; i < 3; i++) {
+      var b = bays[i];
+      if (b && b.state === 'bay' && b.color === color && b.load + b.enroute < b.cap && b.leaveIn < 0) return b;
+    }
+    return null;
+  }
+  function anyMoving() {
+    if (riders.length) return true;
+    for (var i = 0; i < buses.length; i++) {
+      var s = buses[i].state;
+      if (s === 'exit' || s === 'toBay' || s === 'leave' || buses[i].leaveIn >= 0) return true;
+    }
+    return false;
+  }
+  function finish(kind) {
+    if (state === 'end') return;
+    state = 'end'; endKind = kind; endT = 0;
+    if (kind === 'win') { sfx.win(); confetti(); } else sfx.fail();
+  }
+  function confetti() {
+    var cols = Object.keys(COLORS);
+    for (var i = 0; i < 90; i++) {
+      parts.push({ x: W / 2, y: 260, vx: (Math.random() - 0.5) * 520, vy: -Math.random() * 560 - 120,
+        c: COLORS[cols[i % cols.length]], r: Math.random() * 6.28, life: 2.4 });
+    }
+  }
+
+  function update(dt) {
+    if (toastT > 0) toastT -= dt;
+    if (shakeT > 0) shakeT -= dt;
+    qOff += (0 - qOff) * Math.min(1, dt * 12);
+    for (var k = parts.length - 1; k >= 0; k--) {
+      var pa = parts[k];
+      pa.vy += 900 * dt; pa.x += pa.vx * dt; pa.y += pa.vy * dt; pa.r += dt * 8; pa.life -= dt;
+      if (pa.life <= 0) parts.splice(k, 1);
+    }
+    if (state === 'end') { endT += dt; return; }
+    playT += dt; idle += dt;
+
+    buses.forEach(function (b) {
+      if (b.bump > 0) { b.bump += dt / 0.32; if (b.bump >= 1) b.bump = 0; }
+      if (b.state === 'exit') {
+        var step = 950 * dt, d = DV[b.dir];
+        b.moved += step; b.x += d[0] * step; b.y += d[1] * step;
+        if (b.moved >= b.dist) {
+          b.state = 'toBay'; b.t = 0;
+          b.from = [b.x, b.y, b.a];
+          var tg = bayTarget(b);
+          var ta = -Math.PI / 2, da = ta - b.a;
+          while (da > Math.PI) da -= 2 * Math.PI;
+          while (da < -Math.PI) da += 2 * Math.PI;
+          b.to = [tg[0], tg[1], b.a + da];
+        }
+      } else if (b.state === 'toBay') {
+        b.t += dt / 0.5;
+        var e = b.t >= 1 ? 1 : ease(b.t);
+        b.x = lerp(b.from[0], b.to[0], e); b.y = lerp(b.from[1], b.to[1], e); b.a = lerp(b.from[2], b.to[2], e);
+        if (b.t >= 1) { b.state = 'bay'; b.a = -Math.PI / 2; sfx.park(); }
+      } else if (b.state === 'bay' && b.leaveIn >= 0) {
+        b.leaveIn -= dt;
+        if (b.leaveIn < 0) { b.state = 'leave'; b.v = 120; bays[b.bay] = null; sfx.leave(); }
+      } else if (b.state === 'leave') {
+        b.v += 1500 * dt; b.y -= b.v * dt;
+        if (b.y < -220) b.state = 'gone';
+      }
+    });
+
+    for (var r = riders.length - 1; r >= 0; r--) {
+      var rd = riders[r];
+      rd.t += dt / 0.32;
+      if (rd.t >= 1) {
+        riders.splice(r, 1);
+        rd.bus.enroute--; rd.bus.load++;
+        sfx.board();
+        if (rd.bus.load >= rd.bus.cap) rd.bus.leaveIn = 0.25;
+      }
+    }
+
+    boardCD -= dt;
+    if (boardCD <= 0 && queue.length) {
+      var bus = bayBusFor(queue[0]);
+      if (bus) {
+        var c = queue.shift();
+        bus.enroute++;
+        riders.push({ color: c, bus: bus, t: 0, x0: Q_X, y0: Q_Y });
+        qOff += Q_SP;
+        boardCD = 0.11;
+      }
+    }
+
+    if (!queue.length && buses.every(function (b) { return b.state === 'gone'; })) finish('win');
+    else if (queue.length && !anyMoving() && freeBay() < 0 && !bayBusFor(queue[0])) {
+      stuckT += dt;
+      if (stuckT > 0.7) finish('fail');
+    } else stuckT = 0;
+    if (playT > 55 && !anyMoving()) finish('time');
+  }
+
+  function hintBus() {
+    var free = buses.filter(function (b) { return b.state === 'grid' && !blocker(b); });
+    if (!free.length || freeBay() < 0) return null;
+    var seen = {};
+    for (var i = 0; i < queue.length; i++) {
+      var c = queue[i];
+      if (seen[c]) continue;
+      seen[c] = true;
+      if (bayBusFor(c)) continue;
+      for (var j = 0; j < free.length; j++) if (free[j].color === c) return free[j];
+    }
+    return free[0];
+  }
+
+  // ---------- drawing ----------
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+  function rr(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+  function shade(hex, amt) {
+    var n = parseInt(hex.slice(1), 16), r = (n >> 16) + amt, g = ((n >> 8) & 255) + amt, b = (n & 255) + amt;
+    r = Math.max(0, Math.min(255, r)); g = Math.max(0, Math.min(255, g)); b = Math.max(0, Math.min(255, b));
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+  }
+  function text(t, x, y, size, color, align, weight) {
+    ctx.font = (weight || '800') + ' ' + size + 'px "Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif';
+    ctx.textAlign = align || 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = color;
+    ctx.fillText(t, x, y);
+  }
+
+  function drawRider(x, y, color, s) {
+    s = s || 1;
+    ctx.fillStyle = 'rgba(0,0,0,0.18)';
+    ctx.beginPath(); ctx.ellipse(x, y + 11 * s, 7 * s, 2.5 * s, 0, 0, 6.283); ctx.fill();
+    ctx.fillStyle = COLORS[color];
+    rr(x - 6 * s, y - 2 * s, 12 * s, 13 * s, 4 * s); ctx.fill();
+    ctx.fillStyle = '#f3c9a1';
+    ctx.beginPath(); ctx.arc(x, y - 7 * s, 5 * s, 0, 6.283); ctx.fill();
+    ctx.fillStyle = '#4a3426';
+    ctx.beginPath(); ctx.arc(x, y - 8.5 * s, 5 * s, Math.PI, 0); ctx.fill();
+  }
+
+  function drawBus(b) {
+    var L = busLen(b), w = BUS_W, off = 0;
+    if (b.bump > 0) off = Math.sin(b.bump * Math.PI) * b.bumpAmt;
+    ctx.save();
+    ctx.translate(b.x, b.y);
+    ctx.fillStyle = 'rgba(0,0,0,0.25)';
+    ctx.save(); ctx.rotate(b.a); rr(-L / 2 + off + 1, -w / 2 + 4, L, w, 9); ctx.restore(); ctx.fill();
+    ctx.rotate(b.a);
+    ctx.translate(off, 0);
+    var col = COLORS[b.color];
+    ctx.fillStyle = shade(col, -45); rr(-L / 2, -w / 2, L, w, 9); ctx.fill();
+    ctx.fillStyle = col; rr(-L / 2, -w / 2, L, w - 3, 9); ctx.fill();
+    ctx.fillStyle = shade(col, 30); rr(-L / 2 + 5, -w / 2 + 5, L - 30, w - 13, 6); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    var n = b.len === 3 ? 4 : 2;
+    for (var i = 0; i < n; i++) {
+      var wx = -L / 2 + 9 + i * ((L - 40) / n);
+      ctx.fillRect(wx, -w / 2 + 8, (L - 40) / n - 5, 5);
+      ctx.fillRect(wx, w / 2 - 15, (L - 40) / n - 5, 5);
+    }
+    // front plate with the arrow
+    ctx.fillStyle = '#ffffff';
+    rr(L / 2 - 24, -11, 20, 20, 5); ctx.fill();
+    ctx.fillStyle = '#273047';
+    ctx.beginPath();
+    ctx.moveTo(L / 2 - 7, -1.5); ctx.lineTo(L / 2 - 13, -7.5); ctx.lineTo(L / 2 - 13, -4.5);
+    ctx.lineTo(L / 2 - 21, -4.5); ctx.lineTo(L / 2 - 21, 1.5); ctx.lineTo(L / 2 - 13, 1.5);
+    ctx.lineTo(L / 2 - 13, 4.5); ctx.closePath(); ctx.fill();
+    // seats taken
+    if (b.state === 'bay' || b.state === 'leave') {
+      for (var s = 0; s < b.cap; s++) {
+        var sx = -L / 2 + 12 + s * ((L - 40) / Math.max(1, b.cap - 1));
+        ctx.fillStyle = s < b.load ? '#ffffff' : 'rgba(0,0,0,0.25)';
+        ctx.beginPath(); ctx.arc(sx, -1.5, 3.6, 0, 6.283); ctx.fill();
+      }
+    }
+    ctx.restore();
+  }
+
+  function drawScene(t) {
+    // background
+    var g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, '#2b3d66'); g.addColorStop(1, '#1d2944');
+    ctx.fillStyle = g; ctx.fillRect(-2000, -2000, W + 4000, H + 4000);
+    // full buses drive off under the station
+    buses.forEach(function (bu) { if (bu.state === 'leave') drawBus(bu); });
+
+    // top bar
+    ctx.fillStyle = '#24355c'; ctx.fillRect(-2000, -2000, W + 4000, 2000 + 62);
+    if (icon.complete && icon.naturalWidth) {
+      ctx.save(); rr(12, 9, 32, 32, 8); ctx.clip(); ctx.drawImage(icon, 12, 9, 32, 32); ctx.restore();
+    }
+    text('Color Transit', 52, 25, 17, '#ffffff', 'left');
+    var pulse = 1 + Math.sin(t * 5) * 0.04;
+    ctx.save(); ctx.translate(W - 57, 25); ctx.scale(pulse, pulse);
+    ctx.fillStyle = '#1e9e47'; rr(-47, -13, 94, 30, 15); ctx.fill();
+    ctx.fillStyle = '#2fcf62'; rr(-47, -15, 94, 30, 15); ctx.fill();
+    text('INSTALL', 0, 0, 14, '#ffffff');
+    ctx.restore();
+
+    // station and queue
+    ctx.fillStyle = '#c9a36c'; rr(14, 58, W - 28, 12, 6); ctx.fill();
+    ctx.fillStyle = '#f5eedd'; rr(14, 66, W - 28, 74, 12); ctx.fill();
+    ctx.fillStyle = '#e6dcc4'; rr(20, 124, W - 40, 10, 5); ctx.fill();
+    text('NEXT', Q_X, 78, 9, '#8a7350');
+    for (var i = Math.min(queue.length, Q_SHOW) - 1; i >= 0; i--) {
+      var bob = Math.sin(t * 6 + i) * (i === 0 ? 1.2 : 0.4);
+      drawRider(Q_X + i * Q_SP + qOff, Q_Y + bob, queue[i], i === 0 ? 1.15 : 1);
+    }
+    if (queue.length > Q_SHOW) {
+      ctx.fillStyle = '#2b3d66'; rr(W - 52, 98, 34, 20, 10); ctx.fill();
+      text('+' + (queue.length - Q_SHOW), W - 35, 108, 11, '#ffffff');
+    }
+    if (!queue.length) text('ALL ABOARD!', W / 2, 104, 18, '#38c05a');
+
+    // bays
+    var sh = shakeT > 0 ? Math.sin(shakeT * 60) * 4 : 0;
+    for (var b = 0; b < 3; b++) {
+      var bx = BAY_X[b] - BAY_W / 2 + sh;
+      ctx.fillStyle = '#eef1f6'; rr(bx, BAY_TOP, BAY_W, BAY_H, 10); ctx.fill();
+      ctx.strokeStyle = bays[b] ? COLORS[bays[b].color] : '#c4ccda';
+      ctx.lineWidth = 3; rr(bx + 5, BAY_TOP + 5, BAY_W - 10, BAY_H - 10, 7); ctx.stroke();
+      if (!bays[b]) {
+        ctx.fillStyle = '#c4ccda';
+        for (var a = 0; a < 2; a++) {
+          var ay = BAY_TOP + 52 + a * 42;
+          ctx.beginPath(); ctx.moveTo(BAY_X[b] + sh, ay - 10); ctx.lineTo(BAY_X[b] + 10 + sh, ay + 2);
+          ctx.lineTo(BAY_X[b] - 10 + sh, ay + 2); ctx.closePath(); ctx.fill();
+        }
+      }
+    }
+
+    // hint line
+    var msg = toastT > 0 ? toastText : (tapped ? 'MATCH THE NEXT RIDER\'S COLOR' : 'TAP A BUS TO SEND IT OUT');
+    text(msg, W / 2, 320, 13, toastT > 0 ? '#ffd166' : '#dfe6f5');
+
+    // road and lot
+    ctx.fillStyle = '#3b404c'; rr(GX - 14, GY - 14, COLS * C + 28, ROWS * C + 28, 16); ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.55)'; ctx.lineWidth = 2; ctx.setLineDash([9, 8]);
+    rr(GX - 7, GY - 7, COLS * C + 14, ROWS * C + 14, 11); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = '#56627e'; rr(GX - 3, GY - 3, COLS * C + 6, ROWS * C + 6, 9); ctx.fill();
+    ctx.fillStyle = '#6a7898';
+    for (var cx = 0; cx < COLS; cx++) for (var cy = 0; cy < ROWS; cy++) { rr(GX + cx * C + 3, GY + cy * C + 3, C - 6, C - 6, 6); ctx.fill(); }
+
+    // buses: parked ones first, moving ones on top
+    buses.forEach(function (bu) { if (bu.state === 'grid' || bu.state === 'bay') drawBus(bu); });
+    buses.forEach(function (bu) { if (bu.state === 'exit' || bu.state === 'toBay') drawBus(bu); });
+
+    riders.forEach(function (rd) {
+      var e = ease(Math.min(1, rd.t)), tx = rd.bus.x, ty = rd.bus.y;
+      drawRider(lerp(rd.x0, tx, e), lerp(rd.y0, ty, e) - Math.sin(e * Math.PI) * 30, rd.color, 1.1 - e * 0.4);
+    });
+
+    // hand hint
+    if (state === 'play' && idle > (tapped ? 3 : 0.5) && !anyMoving()) {
+      var hb = hintBus();
+      if (hb) {
+        var k = (t * 1.6) % 1, hx = hb.x + 6, hy = hb.y + 10 + Math.sin(t * 6) * 4;
+        ctx.strokeStyle = 'rgba(255,255,255,' + (1 - k) + ')'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.arc(hb.x, hb.y, 8 + k * 26, 0, 6.283); ctx.stroke();
+        drawHand(hx, hy);
+      }
+    }
+
+    parts.forEach(function (pa) {
+      ctx.save(); ctx.translate(pa.x, pa.y); ctx.rotate(pa.r);
+      ctx.fillStyle = pa.c; ctx.fillRect(-4, -2.5, 8, 5); ctx.restore();
+    });
+
+    if (state === 'end') drawEnd(t);
+  }
+
+  function drawHand(x, y) {
+    ctx.save(); ctx.translate(x, y);
+    ctx.fillStyle = '#ffffff'; ctx.strokeStyle = '#273047'; ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(-4, -2); ctx.lineTo(-4, -22); ctx.arc(0, -22, 4, Math.PI, 0); ctx.lineTo(4, -6);
+    ctx.lineTo(13, -4); ctx.quadraticCurveTo(19, -2, 18, 6); ctx.lineTo(15, 20);
+    ctx.lineTo(-3, 20); ctx.lineTo(-13, 4); ctx.quadraticCurveTo(-14, -2, -8, 0); ctx.closePath();
+    ctx.fill(); ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawEnd(t) {
+    var a = Math.min(1, endT / 0.4);
+    ctx.fillStyle = 'rgba(14,20,36,' + (0.82 * a) + ')';
+    ctx.fillRect(-2000, -2000, W + 4000, H + 4000);
+    ctx.save();
+    ctx.globalAlpha = a;
+    var pop = endT < 0.4 ? ease(endT / 0.4) : 1;
+    ctx.translate(W / 2, 300); ctx.scale(0.8 + 0.2 * pop, 0.8 + 0.2 * pop); ctx.translate(-W / 2, -300);
+    var title = endKind === 'win' ? 'LOT CLEARED!' : endKind === 'fail' ? 'OUT OF BAYS!' : 'NICE MOVES!';
+    var sub = endKind === 'win' ? 'Ready for harder levels?' : endKind === 'fail' ? 'Plan ahead - can you solve it?' : 'Keep playing in the full game';
+    text(title, W / 2, 150, 32, endKind === 'fail' ? '#ffd166' : '#ffffff');
+    text(sub, W / 2, 186, 15, '#c9d4ea', 'center', '700');
+    if (icon.complete && icon.naturalWidth) {
+      ctx.save(); rr(W / 2 - 60, 220, 120, 120, 28); ctx.clip(); ctx.drawImage(icon, W / 2 - 60, 220, 120, 120); ctx.restore();
+    }
+    text('Color Transit', W / 2, 370, 24, '#ffffff');
+    text('Match riders. Clear the road.', W / 2, 398, 14, '#c9d4ea', 'center', '700');
+    var p = 1 + Math.sin(t * 6) * 0.05;
+    ctx.save(); ctx.translate(W / 2, 462); ctx.scale(p, p);
+    ctx.fillStyle = '#1e9e47'; rr(-110, -24, 220, 54, 27); ctx.fill();
+    ctx.fillStyle = '#2fcf62'; rr(-110, -28, 220, 54, 27); ctx.fill();
+    text('PLAY FREE', 0, -1, 22, '#ffffff');
+    ctx.restore();
+    text('FREE ON GOOGLE PLAY', W / 2, 505, 11, '#8fa0c4');
+    ctx.strokeStyle = 'rgba(255,255,255,0.5)'; ctx.lineWidth = 2;
+    rr(W / 2 - 60, 522, 120, 32, 16); ctx.stroke();
+    text('REPLAY', W / 2, 538, 13, '#dfe6f5');
+    ctx.restore();
+  }
+
+  // ---------- loop ----------
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 3);
+    cw = window.innerWidth; ch = window.innerHeight;
+    cv.width = Math.round(cw * dpr); cv.height = Math.round(ch * dpr);
+    cv.style.width = cw + 'px'; cv.style.height = ch + 'px';
+    sc = Math.min(cw / W, ch / H);
+    ox = (cw - W * sc) / 2; oy = (ch - H * sc) / 2;
+  }
+
+  var last = 0, clock = 0;
+  function frame(now) {
+    var dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016;
+    last = now; clock += dt;
+    update(dt);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.setTransform(dpr * sc, 0, 0, dpr * sc, dpr * ox, dpr * oy);
+    drawScene(clock);
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize', resize);
+  cv.addEventListener('touchstart', onDown, { passive: false });
+  cv.addEventListener('mousedown', function (e) { if (!e.sourceCapabilities || !e.sourceCapabilities.firesTouchEvents) onDown(e); });
+  resize();
+  reset();
+  requestAnimationFrame(frame);
+
+  // Hooks for automated checks (harmless in the ad).
+  window.__ct = {
+    tapBus: function (i) { tapBus(buses[i]); },
+    step: function (sec) { for (var i = 0; i < sec * 60; i++) update(1 / 60); },
+    snapshot: function () {
+      return { state: state, endKind: endKind, queue: queue.length,
+        buses: buses.map(function (b) { return b.state; }), bays: bays.map(function (b) { return b ? b.id : -1; }) };
+    },
+    reset: reset
+  };
+})();
+
+</script>
+</body>
+</html>
