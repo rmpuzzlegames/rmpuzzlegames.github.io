@@ -8,12 +8,12 @@
 .duo .p2 { right: 4%; top: 0; transform: rotate(5deg); aspect-ratio: 9 / 19.5; }
 
 .games-list { display: grid; gap: 28px; margin-top: 34px; }
-.game { display: grid; grid-template-columns: 300px 1fr; background: var(--card); border: 1px solid var(--line); border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); }
+.game { display: grid; grid-template-columns: 280px 1fr; align-items: stretch; background: var(--card); border: 1px solid var(--line); border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); }
 .game .art { position: relative; padding: 28px; display: grid; place-items: center; }
-.game .art img { width: 220px; border-radius: 24px; box-shadow: 0 20px 40px -16px rgba(0, 0, 0, .5); }
+.game .art img { width: 200px; height: 290px; object-fit: cover; object-position: 50% 45%; border-radius: 22px; box-shadow: 0 20px 40px -16px rgba(0, 0, 0, .5); }
 .tw-card .art { background: radial-gradient(circle at 50% 30%, #f4a100 0, #6a2a8c 55%, #2a0e3d 100%); }
 .ct-card .art { background: radial-gradient(circle at 50% 30%, #f6c12c 0, #3b86f0 60%, #24355c 100%); }
-.game .body { padding: 30px 32px; display: flex; flex-direction: column; gap: 14px; }
+.game .body { padding: 30px 32px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
 .game .head { display: flex; align-items: center; gap: 16px; }
 .game .icon { width: 76px; height: 76px; border-radius: 20px; flex: none; }
 .game h3 { font-size: 30px; font-weight: 900; margin: 2px 0 0; line-height: 1.1; }
@@ -40,3 +40,4 @@
   .game .body { padding: 22px 18px; }
   .game h3 { font-size: 25px; }
 }
+.ct-card .art img { object-position: 50% 0; }
