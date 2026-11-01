@@ -26,7 +26,7 @@
         <li>Your game progress is saved only on your device.</li>
         <li>The Game shows ads from Google AdMob: optional rewarded videos that you choose to watch, and short ads between some levels. Google may collect device information, including your device's advertising ID, as described in Section 4.</li>
         <li>The Game offers optional in-app purchases (coin packs and "Remove ads"), processed by Google Play (Section 5).</li>
-        <li>The Game uses Google Analytics for Firebase to collect anonymous gameplay statistics (for example which levels are started, finished or failed), following your consent choices where the law requires them (Section 3). It does not use any crash-reporting or attribution service.</li>
+        <li>The Game uses Google Analytics for Firebase to collect anonymous gameplay statistics (for example which levels are started, finished or failed), following your consent choices where the law requires them (Section 3). It also uses Firebase Crashlytics to receive crash reports, and it does not use any attribution service.</li>
       </ul>
 
       <h2>2. Information stored on your device</h2>
@@ -45,7 +45,7 @@
       <p><strong>Android backup.</strong> If you have enabled backup on your Android device, Android may include the Game's saved data in your device backup to your Google Account. This backup is provided and controlled by Google under your Google Account settings, not by us. See <a href="https://support.google.com/android/answer/2819582">Back up or restore data on your Android device</a>.</p>
 
       <h2>3. Information we collect</h2>
-      <p>We do not collect personal information directly. The Game has no forms or accounts, and the Game's own code does not send your data to any server operated by us. We do not use crash-reporting or attribution services.</p>
+      <p>We do not collect personal information directly. The Game has no forms or accounts, and the Game's own code does not send your data to any server operated by us. We do not use attribution services.</p>
 
       <h3>Gameplay analytics (Google Analytics for Firebase)</h3>
       <p>To understand how the Game is played and to improve its levels, the Game uses Google Analytics for Firebase, a service of Google LLC. It records anonymous in-game events such as:</p>
@@ -58,6 +58,12 @@
       <p>Together with these events, Google Analytics collects device and app information (such as device model, operating system version, app version, language and approximate country or region derived from the IP address), an app-instance identifier and, where allowed, the device's advertising ID. Google also records app opens, screen views and sessions automatically, as well as Google Play purchase events (product ID, product name and price; never your payment details). Because the Game's ads come from Google AdMob, ad impressions and earnings can be shown alongside these statistics.</p>
       <p>The Game starts with analytics storage and advertising signals denied. Where no consent is required, they are allowed once the consent check has run. In the EEA, the UK and Switzerland, Google Analytics follows the choices you made in Google's consent form (Section 4.3), and you can change them at any time in Settings › Ad privacy choices.</p>
       <p>Analytics data is not used by us to identify you, is not sold, and does not include your name, email, contacts, photos or precise location. Google's privacy policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>; how Google uses data from apps: <a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a>.</p>
+
+      <h3>Crash reports (Firebase Crashlytics)</h3>
+      <p>If the Game crashes or hits a serious error, Firebase Crashlytics (Google LLC) sends a crash report so we can fix the problem: the stack trace, the state of the Game at the time, device model, operating system version, app version, free memory and disk space, and a Crashlytics installation identifier. Crash reports do not contain your name, email or other contact details and are kept for 90 days.</p>
+
+      <h3>Reminders (local notifications)</h3>
+      <p>After a few levels the Game asks whether you would like daily reminders. If you agree (and allow notifications on Android 13 and later), the Game schedules reminders on your phone, for example when your daily gift is ready or your Daily Challenge streak is about to end. They are created and stored on your device only; nothing is sent to us or anyone else for them. You can turn them off at any time in the Game (Settings › Daily reminder) or in your phone's notification settings.</p>
 
       <h3>Sharing pictures</h3>
       <p>When you tap Share on a finished picture, the Game saves the picture as an image in your phone's Pictures/Tangle Worlds folder and opens Android's share sheet. Nothing is sent anywhere unless you choose an app to share it with; that app then handles it under its own privacy policy.</p>
@@ -111,6 +117,7 @@
           <tr><td>Advertising ID (AD_ID)</td><td>Used by Google's ads software as described in Section 4.</td></tr>
           <tr><td>Privacy Sandbox ad services (ad ID, Topics, Attribution)</td><td>Used by Google's ads software where supported.</td></tr>
           <tr><td>Vibration</td><td>Optional haptic feedback; can be turned off in the Game's settings.</td></tr>
+          <tr><td>Notifications (POST_NOTIFICATIONS)</td><td>Optional daily reminders (see Section 3). Asked only if you choose reminders; you can turn them off at any time.</td></tr>
           <tr><td>Wake lock, foreground service</td><td>Used by Android system libraries included with the ads and billing software to schedule background work.</td></tr>
         </table>
       </div>
