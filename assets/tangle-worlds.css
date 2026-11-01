@@ -1,0 +1,19 @@
+/* Tangle Worlds page: plum and gold, on top of site.css */
+body.tw { --bg2: #f6ecff; --navy: #3a1452; --blue: #8a3ffc; --green: #f4a100; --green-d: #c27a00; }
+@media (prefers-color-scheme: dark) {
+  body.tw { --bg: #160a22; --bg2: #21102f; --card: #2a1640; --line: #3b2456; --blue: #c39bff; }
+}
+.tw .btn-primary { color: #3a1a00; }
+.tw .hero { background: radial-gradient(900px 520px at 80% 20%, rgba(244, 161, 0, .22), transparent 60%), radial-gradient(800px 500px at 10% 90%, rgba(154, 91, 239, .18), transparent 60%); }
+.tw-logo { line-height: .9 !important; }
+.tw-logo .w1, .tw-logo .w2 { display: block; background: linear-gradient(#fff1a6, #ffb01f); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-stroke: 2px #4a0f33; paint-order: stroke fill; filter: drop-shadow(0 6px 0 rgba(74, 15, 51, .35)); }
+.tw-logo .w2 { font-size: .55em; letter-spacing: .08em; background: linear-gradient(#ffffff, #c7d2fe); -webkit-background-clip: text; background-clip: text; }
+.soon { display: inline-flex; align-items: center; gap: 10px; font: 800 17px Nunito, system-ui, sans-serif; padding: 14px 22px; border-radius: 16px; background: linear-gradient(#ffe873, #f4a100); color: #3a1a00; box-shadow: 0 5px 0 #c27a00; }
+.soon svg { width: 22px; height: 22px; }
+.phone.tall { aspect-ratio: 9 / 19.5; width: min(300px, 74vw); }
+.phone img { width: 100%; height: 100%; border-radius: 31px; object-fit: cover; }
+.worlds { list-style: none; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.worlds li { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 2px; }
+.worlds b { font: 800 19px Nunito, system-ui, sans-serif; }
+.worlds span { color: var(--muted); font-size: 15.5px; }
+@media (max-width: 760px) { .soon { width: 100%; justify-content: center; } }
