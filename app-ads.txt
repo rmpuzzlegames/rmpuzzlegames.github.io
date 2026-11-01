@@ -1,5 +1,5 @@
 # app-ads.txt for RM Puzzle Games (Color Transit, com.colortransit.game; Tangle Worlds, com.rmpuzzlegames.tangleworlds)
-OWNERDOMAIN=rmpuzzlegames.github.io
+OWNERDOMAIN=rmpuzzlegames.com
 
 # Google AdMob
 google.com, pub-9419529406465609, DIRECT, f08c47fec0942fa0
