@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publishing - Tangle Worlds | RM Puzzle Games</title>
+  <meta name="description" content="Publishing information for Tangle Worlds by RM Puzzle Games: gameplay trailer, features, technical and monetization readiness, testing status and build access for publishing partners.">
+  <link rel="canonical" href="https://rmpuzzlegames.com/publishing/">
+  <meta name="theme-color" content="#3a1452">
+  <link rel="icon" href="../assets/tangle-worlds/icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RM Puzzle Games">
+  <meta property="og:title" content="Tangle Worlds - for publishing partners">
+  <meta property="og:description" content="Trailer, features, readiness and build access for Tangle Worlds, a casual untangle puzzle for Android.">
+  <meta property="og:image" content="https://rmpuzzlegames.com/assets/tangle-worlds/trailer.jpg">
+  <meta property="og:url" content="https://rmpuzzlegames.com/publishing/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/tangle-worlds.css">
+  <style>
+    .pub-video { width: 100%; height: auto; border-radius: 24px; box-shadow: 0 18px 50px rgba(0,0,0,.35); background: #120a1c; }
+    .ready { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 26px; }
+    .ready ul { margin: 10px 0 0; padding-left: 20px; }
+    .ready li { margin: 6px 0; }
+    .status { margin-top: 22px; padding: 22px 26px; border-radius: 20px; background: rgba(52, 211, 153, .12); border: 1px solid rgba(52, 211, 153, .35); }
+    .status strong { color: #34d399; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+  </style>
+</head>
+<body class="tw">
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="../"><span class="logo">RM</span><span class="bt">RM Puzzle Games</span></a>
+      <div class="links">
+        <a href="#trailer">Trailer</a>
+        <a href="#readiness">Readiness</a>
+        <a href="#access">Build access</a>
+        <a href="#studio">Studio</a>
+      </div>
+      <a class="btn btn-primary btn-small" href="mailto:rmpuzzlegames.support@gmail.com?subject=Tangle%20Worlds%20-%20publishing">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="trailer">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">For publishing partners</span>
+        <h1 class="tw-logo"><span class="w1">Tangle</span><span class="w2">WORLDS</span></h1>
+        <p class="tag">A casual untangle puzzle with hidden pictures, worlds to unlock and characters to collect.</p>
+        <p class="sub">Tap a critter and it slides out head first, but only if nothing is in its way. Find the right order, clear the board and a hidden picture appears. Every level is generated and verified solvable.</p>
+        <ul class="facts">
+          <li>Android</li>
+          <li>Free to play</li>
+          <li>Google Play Closed Testing</li>
+          <li>Ads + IAP ready</li>
+        </ul>
+      </div>
+      <div>
+        <video class="pub-video" controls preload="none" playsinline poster="../assets/tangle-worlds/trailer.jpg" width="1280" height="720">
+          <source src="../assets/tangle-worlds/trailer.mp4" type="video/mp4">
+          Your browser cannot play this video. <a href="../assets/tangle-worlds/trailer.mp4">Download the trailer</a>.
+        </video>
+        <p class="lead" style="margin-top:10px">60 seconds of real gameplay captured from the game.</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="features">
+    <div class="wrap">
+      <span class="eyebrow">The game</span>
+      <h2>Why players come back</h2>
+      <div class="grid">
+        <div class="card"><h3>Satisfying core loop</h3><p>Endless, guaranteed-solvable levels with 48 board shapes and up to 350 critters per board. Difficulty rises step by step, with an easier level after every harder one.</p></div>
+        <div class="card"><h3>Hidden pictures</h3><p>Every fifth level hides a pixel-art picture that develops as the board is cleared, collected in a gallery of 30 pictures.</p></div>
+        <div class="card"><h3>Seven worlds</h3><p>Snakes, caterpillars, robo worms, eels, baby dragons and more: each world has its own critters, moves, reactions, music and look.</p></div>
+        <div class="card"><h3>Characters and style</h3><p>8 playable characters plus hats, glasses, trails, burrow looks and victory parties. Rarities, collection sets and a daily deal. Players try items on before they buy.</p></div>
+        <div class="card"><h3>A living home screen</h3><p>The player's character dances to a dhol beat on a lit stage and shows its best move when tapped, with today's deal and the next goal beside it.</p></div>
+        <div class="card"><h3>Daily habits</h3><p>Daily Challenge with streaks, a 7-day gift, daily missions, achievements and a first-play tutorial.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="readiness" style="background:var(--bg2)">
+    <div class="wrap">
+      <span class="eyebrow">Publishing readiness</span>
+      <h2>Built to be tested and scaled</h2>
+      <div class="ready">
+        <div class="card">
+          <h3>Technology</h3>
+          <ul>
+            <li>Unity 6, Android (Google Play, AAB)</li>
+            <li>Procedural level generator with a solver and validator</li>
+            <li>Automatic quality for slower phones</li>
+            <li>Offline play, progress saved on the device</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Monetization</h3>
+          <ul>
+            <li>Rewarded ads (hints, extra heart, double coins, free coins)</li>
+            <li>Interstitials with pacing rules</li>
+            <li>IAP: coin packs and remove-ads (Google Play Billing)</li>
+            <li>Coin sinks: Style shop, hints, continues</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Data and live tuning</h3>
+          <ul>
+            <li>Firebase Analytics: level funnel, purchases, ads, Style shop and Home events</li>
+            <li>Firebase Crashlytics</li>
+            <li>Firebase Remote Config: prices, rewards, deals and ad pacing without an update</li>
+            <li>Consent flow for ads (UMP)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="access">
+    <div class="wrap">
+      <span class="eyebrow">Status</span>
+      <h2>Testing status and build access</h2>
+      <div class="status">
+        <p style="margin:0"><strong>Currently in Google Play Closed Testing.</strong> A playable Android build is available to publishing partners on request: send us the Google account emails of your team and we will invite them to the closed test. Retention and engagement numbers from the test are available on request.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:rmpuzzlegames.support@gmail.com?subject=Tangle%20Worlds%20-%20build%20access">Request build access</a>
+        <a class="btn btn-ghost" href="../press/#tangle-worlds">Media kit</a>
+        <a class="btn btn-ghost" href="../tangle-worlds/">Game page</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="studio" style="background:var(--bg2)">
+    <div class="wrap">
+      <span class="eyebrow">Studio</span>
+      <h2>RM Puzzle Games</h2>
+      <p class="lead">An independent puzzle studio from India making colourful, fair puzzle games for Android.</p>
+      <div class="grid" style="margin-top:22px">
+        <div class="card">
+          <h3>Color Transit</h3>
+          <p>Our first game, live on Google Play: a colour-sorting traffic puzzle. Try it in your browser or on Android.</p>
+          <div class="cta-row" style="margin-top:12px">
+            <a class="btn btn-primary btn-small" href="https://play.google.com/store/apps/details?id=com.colortransit.game">Google Play</a>
+            <a class="btn btn-ghost btn-small" href="../play/">Play in browser</a>
+            <a class="btn btn-ghost btn-small" href="../color-transit/">Game page</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Contact</h3>
+          <p>Rajesh, RM Puzzle Games<br><a href="mailto:rmpuzzlegames.support@gmail.com?subject=Tangle%20Worlds%20-%20publishing">rmpuzzlegames.support@gmail.com</a><br><a href="https://www.youtube.com/@RMPuzzleGames">YouTube: @RMPuzzleGames</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span class="sp">© 2026 <a href="../">RM Puzzle Games</a>, India</span>
+      <a href="../tangle-worlds/privacy/">Tangle Worlds Privacy</a>
+      <a href="../terms/">Terms of Use</a>
+      <a href="../press/">Press</a>
+      <a href="mailto:rmpuzzlegames.support@gmail.com">rmpuzzlegames.support@gmail.com</a>
+    </div>
+  </footer>
+</body>
+</html>
