@@ -29,7 +29,7 @@
     .status strong { color: #34d399; }
     .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
     /* on a phone the trailer comes first, before the text */
-    @media (max-width: 900px) { .hero .wrap > div:last-child { order: -1; } }
+    @media (max-width: 900px) { .hero .wrap { display: flex; flex-direction: column; } .hero .wrap > div:last-child { order: -1; } }
   </style>
 </head>
 <body class="tw">
