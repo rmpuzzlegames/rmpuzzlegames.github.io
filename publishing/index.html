@@ -28,6 +28,8 @@
     .status { margin-top: 22px; padding: 22px 26px; border-radius: 20px; background: rgba(52, 211, 153, .12); border: 1px solid rgba(52, 211, 153, .35); }
     .status strong { color: #34d399; }
     .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    /* on a phone the trailer comes first, before the text */
+    @media (max-width: 900px) { .hero .wrap > div:last-child { order: -1; } }
   </style>
 </head>
 <body class="tw">
