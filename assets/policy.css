@@ -54,3 +54,6 @@ footer a { color: inherit; }
   article { padding: 20px 16px; }
   h1 { font-size: 25px; }
 }
+
+/* the studio logo (a smiling jigsaw piece) is an image with its own background */
+img.logo { display: block; background: none; padding: 0; object-fit: contain; }

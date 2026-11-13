@@ -163,3 +163,6 @@ footer .tm { flex-basis: 100%; font-size: 13px; opacity: .8; }
   .cta .badge { margin: 0 auto; }
 }
 @media (prefers-reduced-motion: reduce) { .badge { transition: none; } }
+
+/* the studio logo (a smiling jigsaw piece) is an image with its own background */
+img.logo { display: block; background: none; padding: 0; object-fit: contain; }
